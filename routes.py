@@ -1,10 +1,12 @@
 from flask import Flask, render_template, request
+from flask_sqlalchemy import SQLAlchemy
 from models import db, User
 from forms import SignupForm
 
 app = Flask(__name__)
 
-app.config['SQLALCHEMY_DATABASE_URI'] = 'mysql://mypythonapp:nVDCaEVM3/w@127.0.0.1/login'
+app.config['SQLALCHEMY_DATABASE_URI'] = 'mysql+pymysql://mypythonapp:nVDCaEVM3w@127.0.0.1/login'
+app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
 db.init_app(app)
 
 app.secret_key = "development-key"
